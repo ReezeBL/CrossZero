@@ -59,14 +59,14 @@ int strategy(char *field, int player){
 
 int main(){
 	srand(time(0));
-	int player = -1;
+	int player = -1;//Ё“ќ Ќ”∆Ќќ
 	HANDLE hMap = CreateFileMappingA(NULL,NULL, PAGE_READWRITE,0,11*sizeof(char),"ZeroCross");
 	if(!hMap){
 		cout << "Internal game error!" << endl;
 		return 0;
 	}
 	LPVOID ptr = MapViewOfFile(hMap, FILE_MAP_READ | FILE_MAP_WRITE, 0, 0, 0);
-	char *status = (char*) ptr;
+	char *status = (char*) ptr;//это не нужно, но пусть будет
 	char *field = status + 2;
 	if(!status[0]){
 		player = 0;
